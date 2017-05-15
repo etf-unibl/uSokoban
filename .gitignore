@@ -1,0 +1,10 @@
+*.mcl
+*.dbg
+*.dlt
+*.hex
+*.lst
+*.txt
+binary/
+*.asm
+*.cp
+_*.bat
