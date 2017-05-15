@@ -36,8 +36,8 @@ LIBS= \
 "__Lib_Glcd.mcl" \
 "__Lib_TouchPanel.mcl"  
 
-BINARY_OUTPUT="..\binary\$(APP_NAME)"
+BINARY_OUTPUT="..\bin\$(APP_NAME)"
 
 all:
-	@mkdir -p $(BINARY_OUTPUT)
+	-mkdir -p $(BINARY_OUTPUT)
 	${CC} ${CFLAGS} -N${BINARY_OUTPUT} -IP${INCLUDE_DIR} ${SEARCH_PATHS} ${SRCS} ${LIBS}

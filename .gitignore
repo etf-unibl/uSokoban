@@ -4,7 +4,7 @@
 *.hex
 *.lst
 *.txt
-binary/
+bin/
 *.asm
 *.cp
 _*.bat
