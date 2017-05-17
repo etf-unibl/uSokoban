@@ -10,6 +10,11 @@ typedef struct map_t {
 	uint8_t grid[MAP_HEIGHT][MAP_WIDTH];
 } map_t;
 
+typedef struct refresh_area {
+	uint8_t x;
+	uint8_t y;
+} refresh_area;
+
 typedef enum {
 	FIELD_OUTSIDE,
 	FIELD_EMPTY,

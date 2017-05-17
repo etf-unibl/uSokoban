@@ -5,77 +5,97 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-#define FIELD_WIDTH			(SCREEN_WIDTH / MAP_WIDTH)
-#define FIELD_HEIGHT		(SCREEN_HEIGHT / MAP_HEIGHT)
-
-
+#define FIELD_WIDTH                 (SCREEN_WIDTH / MAP_WIDTH)
+#define FIELD_HEIGHT                (SCREEN_HEIGHT / MAP_HEIGHT)
 
 /* Glcd module connections */
-static char GLCD_DataPort at PORTC;
-static char GLCD_DataPort_Direction at DDRC;
+uint8_t GLCD_DataPort at PORTC;
+uint8_t GLCD_DataPort_Direction at DDRC;
 
-static sbit GLCD_CS1 at PORTB0_bit;
-static sbit GLCD_CS2 at PORTB1_bit;
-static sbit GLCD_RS  at PORTA2_bit;
-static sbit GLCD_RW  at PORTA3_bit;
-static sbit GLCD_EN  at PORTD6_bit;
-static sbit GLCD_RST at PORTD7_bit;
+sbit GLCD_CS1 at PORTB0_bit;
+sbit GLCD_CS2 at PORTB1_bit;
+sbit GLCD_RS  at PORTA2_bit;
+sbit GLCD_RW  at PORTA3_bit;
+sbit GLCD_EN  at PORTD6_bit;
+sbit GLCD_RST at PORTD7_bit;
 
-static sbit GLCD_CS1_Direction at DDB0_bit;
-static sbit GLCD_CS2_Direction at DDB1_bit;
-static sbit GLCD_RS_Direction  at DDA2_bit;
-static sbit GLCD_RW_Direction  at DDA3_bit;
-static sbit GLCD_EN_Direction  at DDD6_bit;
-static sbit GLCD_RST_Direction at DDD7_bit;
+sbit GLCD_CS1_Direction at DDB0_bit;
+sbit GLCD_CS2_Direction at DDB1_bit;
+sbit GLCD_RS_Direction  at DDA2_bit;
+sbit GLCD_RW_Direction  at DDA3_bit;
+sbit GLCD_EN_Direction  at DDD6_bit;
+sbit GLCD_RST_Direction at DDD7_bit;
 /* End Glcd module connection */
 
 /* bitmaps */
-static const code char box[8] = {
+static const code uint8_t box[8] = {
 255, 195, 165, 153, 153, 165, 195, 255
 };
 
-static const code char box_destination[8] = {
+static const code uint8_t box_destination[8] = {
   0,   0,   0,  24,  24,   0,   0,   0
 };
 
-static const code char box_placed[8] = {
+static const code uint8_t box_placed[8] = {
 255, 195, 189, 189, 189, 189, 195, 255
 };
 
-static const code char player[8] = {
+static const code uint8_t player[8] = {
   0,  60, 118,  94,  94, 118,  60,   0
 };
+/* End bitmaps */
 
-void glcd_render(map_t *map)
-{	
-    Glcd_fill(CLEAR);
-	unsigned char curr_height,curr_width;
-	for(curr_height=0;curr_height<MAP_HEIGHT;curr_height++){
-		for(curr_width=0;curr_width<MAP_WIDTH;curr_width++){
-			draw(map->grid[curr_width][curr_height],curr_height,curr_width);
+static void draw(field_t type, uint8_t height, uint8_t width);
+
+void glcd_initialization(map_t *map){
+	uint8_t curr_height, curr_width;
+	
+	Glcd_init();
+	Glcd_fill(CLEAR);
+	
+	for(curr_height = 0; curr_height < MAP_HEIGHT; curr_height++){
+		for(curr_width = 0; curr_width < MAP_WIDTH; curr_width++){
+			draw(map->grid[curr_height][curr_width], curr_height, curr_width);
 		}
 	}
 }
 
-static void draw(field_t type,unsigned char height, unsigned char width){
+void glcd_render(map_t *map, refresh_area *area){
+	uint8_t curr_height, curr_width;
+	uint8_t min_height, min_width;
+	uint8_t max_height, max_width;
+	
+	min_height = (area->y == 0 ? area->y : (area->y) - 1);
+	min_width = (area->x == 0 ? area->x : (area->x) - 1);
+	max_height = (area->y == FIELD_HEIGHT ? area->y : (area->y) + 1);
+	max_width = (area->x == FIELD_WIDTH ? area->x : (area->x) + 1);
+	
+	for(curr_height = min_height; curr_height < max_height; curr_height++){
+		for(curr_width = min_width; curr_width < max_width; curr_width++){
+			draw(map->grid[curr_height][curr_width], curr_height, curr_width);
+		}
+	}
+}
+
+static void draw(field_t type, uint8_t height, uint8_t width){
 	switch(type){
 		case FIELD_EMPTY:
-		    Glcd_Box(width*FIELD_WIDTH,height*FIELD_HEIGHT,width*FIELD_WIDTH+FIELD_WIDTH,height*FIELD_HEIGHT+FIELD_HEIGHT,0);
+			Glcd_Box(width * FIELD_WIDTH, height * FIELD_HEIGHT, width * FIELD_WIDTH + FIELD_WIDTH, height * FIELD_HEIGHT + FIELD_HEIGHT, 0);
 			break;
 		case FIELD_PLAYER:
-			Glcd_PartialImage(width*FIELD_WIDTH,height*FIELD_HEIGHT,width*FIELD_WIDTH+FIELD_WIDTH,height*FIELD_HEIGHT+FIELD_HEIGHT,FIELD_WIDTH,FIELD_HEIGHT,player);
+			Glcd_PartialImage(width * FIELD_WIDTH, height * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT, 8, 8, player);
 			break;
 		case FIELD_BOX:
-			Glcd_PartialImage(width*FIELD_WIDTH,height*FIELD_HEIGHT,width*FIELD_WIDTH+FIELD_WIDTH,height*FIELD_HEIGHT+FIELD_HEIGHT,FIELD_WIDTH,FIELD_HEIGHT,box);		
+			Glcd_PartialImage(width * FIELD_WIDTH, height * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT, 8, 8, box);                
 			break;
-		case FIELD_BOX_DESTINATION:
-			Glcd_PartialImage(width*FIELD_WIDTH,height*FIELD_HEIGHT,width*FIELD_WIDTH+FIELD_WIDTH,height*FIELD_HEIGHT+FIELD_HEIGHT,FIELD_WIDTH,FIELD_HEIGHT,box_destination);		
+		case FIELD_BOX_DESTINATION
+			Glcd_PartialImage(width * FIELD_WIDTH, height * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT, 8, 8, box_destination);                
 			break;
 		case FIELD_BOX_PLACED:
-			Glcd_PartialImage(width*FIELD_WIDTH,height*FIELD_HEIGHT,width*FIELD_WIDTH+FIELD_WIDTH,height*FIELD_HEIGHT+FIELD_HEIGHT,FIELD_WIDTH,FIELD_HEIGHT,box_placed);		
+			Glcd_PartialImage(width * FIELD_WIDTH, height * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT, 8, 8, box_placed);                
 			break;
 		default:
-			Glcd_Box(width*FIELD_WIDTH,height*FIELD_HEIGHT,width*FIELD_WIDTH+FIELD_WIDTH,height*FIELD_HEIGHT+FIELD_HEIGHT,2);
+			Glcd_Box(width * FIELD_WIDTH, height * FIELD_HEIGHT, width * FIELD_WIDTH + FIELD_WIDTH, height * FIELD_HEIGHT + FIELD_HEIGHT, 1);
 			break;
 	}
 }
