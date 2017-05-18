@@ -13,7 +13,7 @@ typedef struct map_t {
 typedef struct refresh_area {
 	uint8_t x;
 	uint8_t y;
-} refresh_area;
+} refresh_area_t;
 
 typedef enum {
 	FIELD_OUTSIDE,

@@ -2,7 +2,8 @@
 #include "display.h"
 #include "cntrl.h"
 
-void main()
-{
+void main(){
+	
+	
 	
 }
