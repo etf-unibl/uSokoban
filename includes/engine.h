@@ -10,10 +10,10 @@ typedef enum {
 } engine_err_code_t;
 
 typedef enum {
-	DIR_UP,
-	DIR_DOWN,
 	DIR_LEFT,
-	DIR_RIGHT
+	DIR_RIGHT,
+	DIR_UP,
+	DIR_DOWN
 } dirrection_t;
 
 typedef struct player {
