@@ -10,7 +10,7 @@ SRC_DIR_CYGWIN=$(shell pwd)
 SRC_DIR=$(shell cygpath -w $(SRC_DIR_CYGWIN))
 INCLUDE_DIR="$(SRC_DIR)\..\includes\"
 
-MODULES=cntrl\ display\ engine\ glcd\ vga\ 
+MODULES=cntrl\ display\ engine\ glcd\ vga\ map\
 
 MODULES_SEARCH_PATHS=$(foreach module,$(MODULES), -SP"$(SRC_DIR)\$(module)")
 

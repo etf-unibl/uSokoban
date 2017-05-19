@@ -4,6 +4,6 @@
 #include "map.h"
 
 void glcd_initialization(map_t *);
-void glcd_render(map_t *, refresh_area *);
+void glcd_render(map_t *, refresh_area_t *);
 
 #endif

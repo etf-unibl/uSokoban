@@ -29,7 +29,7 @@ sbit GLCD_RST_Direction at DDD7_bit;
 
 /* bitmaps */
 static const code uint8_t box[8] = {
-255, 195, 165, 153, 153, 165, 195, 255
+0, 60, 90, 102, 102, 90, 60, 0
 };
 
 static const code uint8_t box_destination[8] = {
@@ -37,7 +37,7 @@ static const code uint8_t box_destination[8] = {
 };
 
 static const code uint8_t box_placed[8] = {
-255, 195, 189, 189, 189, 189, 195, 255
+0, 60, 66, 66, 66, 66, 60, 0
 };
 
 static const code uint8_t player[8] = {
@@ -60,7 +60,7 @@ void glcd_initialization(map_t *map){
 	}
 }
 
-void glcd_render(map_t *map, refresh_area *area){
+void glcd_render(map_t *map, refresh_area_t *area){
 	uint8_t curr_height, curr_width;
 	uint8_t min_height, min_width;
 	uint8_t max_height, max_width;
@@ -80,7 +80,7 @@ void glcd_render(map_t *map, refresh_area *area){
 static void draw(field_t type, uint8_t height, uint8_t width){
 	switch(type){
 		case FIELD_EMPTY:
-			Glcd_Box(width * FIELD_WIDTH, height * FIELD_HEIGHT, width * FIELD_WIDTH + FIELD_WIDTH, height * FIELD_HEIGHT + FIELD_HEIGHT, 0);
+			Glcd_Box(width * FIELD_WIDTH, height * FIELD_HEIGHT, width * FIELD_WIDTH + FIELD_WIDTH - 1, height * FIELD_HEIGHT + FIELD_HEIGHT - 1, 0);
 			break;
 		case FIELD_PLAYER:
 			Glcd_PartialImage(width * FIELD_WIDTH, height * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT, 8, 8, player);
@@ -95,7 +95,7 @@ static void draw(field_t type, uint8_t height, uint8_t width){
 			Glcd_PartialImage(width * FIELD_WIDTH, height * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT, 8, 8, box_placed);                
 			break;
 		default:
-			Glcd_Box(width * FIELD_WIDTH, height * FIELD_HEIGHT, width * FIELD_WIDTH + FIELD_WIDTH, height * FIELD_HEIGHT + FIELD_HEIGHT, 1);
+			Glcd_Box(width * FIELD_WIDTH, height * FIELD_HEIGHT, width * FIELD_WIDTH + FIELD_WIDTH - 1, height * FIELD_HEIGHT + FIELD_HEIGHT - 1, 1);
 			break;
 	}
 }

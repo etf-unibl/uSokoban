@@ -14,6 +14,6 @@ typedef enum {
 } key_err_code_t;
 
 
-key_err_code_t is_pressed();
+key_err_code_t is_pressed(key_pressed_t *);
 
 #endif
