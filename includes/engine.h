@@ -14,7 +14,7 @@ typedef enum {
 	DIR_DOWN,
 	DIR_LEFT,
 	DIR_RIGHT
-} dirrection_t;
+} direction_t;
 
 typedef struct player {
 	uint8_t x;
@@ -26,6 +26,7 @@ typedef struct game {
 	player_t player;
 } game_t;
 
-engine_err_code_t move(dirrection_t dir);
+engine_err_code_t init(game_t *);
+engine_err_code_t move(game_t *, direction_t dir);
 
 #endif
