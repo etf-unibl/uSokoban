@@ -27,6 +27,6 @@ typedef struct game {
 } game_t;
 
 engine_err_code_t init(game_t *);
-engine_err_code_t move(game_t *, direction_t dir);
+engine_err_code_t move(game_t *, direction_t);
 
 #endif
