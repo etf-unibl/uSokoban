@@ -4,6 +4,6 @@
 #include "vga.h"
 #include "glcd.h"
 
-void render(map_t *map, refresh_area_t *);
+void render(map_t *, refresh_area_t *);
 
 #endif
