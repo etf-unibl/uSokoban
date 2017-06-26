@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="usokoban.SokobanController">
+   <children>
+      <ComboBox fx:id="comboBoxPorts" layoutX="316.0" layoutY="14.0" onAction="#handleComboBoxAction" prefWidth="150.0" />
+      <Button fx:id="startBtn" layoutX="316.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="150.0" text="Continue" />
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="168.0" text="Please select available port:" />
+   </children>
+</Pane>
