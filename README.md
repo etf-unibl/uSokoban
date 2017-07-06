@@ -39,26 +39,3 @@ Nakon što podesimo ploču i spojimo spoljašnje komponente potrebno je spustiti
 6. Pokrenemo AVRFLASH
 7. Učitamo .hex file koji smo dobili kompajliranjem
 8. Spustimo to na ploču pritiskom na dugme Write
-
-
-
-
-
-Mladen je rekao da se navedu sljedeće stvari:
-koji UART je koristen,
-koja ploca,
-koji kompajler, da li ima dodatna podesavanja
-koji mikrokontroler,
-koja je frekvencija kristal kvarca,
-koje spoljašnje komponente su korištene, gdje ih treba povezati i kako
-kako treba podesiti jumpere,
-kako spustiti kod,
-koje okruzenje je koristeno,
-za sta sluze koji tarteri
-sta treba podesiti na računaru,
-kako povezati racunar i plocu,
-kako pokrenuti na racunaru
-itd itd,
-neko ko nikad nije radio sa ovim treba da bude u mogućnosti da pomocu README filea podesi sve i pokrene igricu.
-
-Pored toga u dokumentaciji nekoj treba da spomenemo VGA, da prilozimo onu nasu semu vezano za VGA i tako neke stvari tehnicke prirode.
