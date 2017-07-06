@@ -47,7 +47,7 @@ static const code uint8_t player[8] = {
 
 static void draw(field_t type, uint8_t height, uint8_t width);
 
-void glcd_initialization(map_t *map) {
+void glcd_init1(map_t *map) {
         uint8_t curr_height, curr_width;
 
         Glcd_init();
@@ -70,21 +70,10 @@ void glcd_render(map_t *map, refresh_area_t *area){
         max_height = (area->y + 1 == MAP_HEIGHT ? area->y + 1 : (area->y) + 2);
         max_width = (area->x  + 1 == MAP_WIDTH ? area->x + 1 : (area->x) + 2);
 
-		// UART1_Write(min_height + 0x30);
-		// UART1_Write(min_width + 0x30);
-		// UART1_Write(max_height + 0x30);
-		// UART1_Write(max_width + 0x30);
-		// UART1_Write(area->y + 0x30);
-		// UART1_Write(area->x + 0x30);
-		// UART1_Write(10);
-		// UART1_Write(13);
         for(curr_height = min_height; curr_height < max_height; curr_height++){
                 for(curr_width = min_width; curr_width < max_width; curr_width++){
                         draw(map->grid[curr_height][curr_width], curr_height, curr_width);
-						// UART1_Write(map->grid[curr_height][curr_width] + 0x30);
                 }
-				// UART1_Write(10);
-				// UART1_Write(13);
         }
 }
 

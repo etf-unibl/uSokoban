@@ -9,26 +9,28 @@ void main()
 {
 	int i, j;
 	game.level = 0;
-    engine_init(&game);
-    glcd_initialization(game.map);
+	engine_init(&game);
+	glcd_init1(game.map);
+	vga_uart_init(game.map);
 
-/*
-	for (i = 0; i < MAP_HEIGHT; i++) {
-		for (j = 0; j < MAP_WIDTH; j++) {
-			UART1_Write(game.map->grid[i][j] + 0x30);
-		}
-		UART1_Write(13);
-	    UART1_Write(10);
-	}*/
 	while (1) {
 		if (is_pressed(&key) == KEY_OK) {
-			move(&game, key);
-			while(is_pressed(&key) == KEY_OK)
-				;
+			if (key != KEY_RST) {
+				move(&game, key);
+				while(is_pressed(&key) == KEY_OK)
+					;
+			}
+			else {
+				change_level(&game);
+				glcd_init1(game.map);
+				vga_uart_render(game.map);
+				key = KEY_UP;
+			}
 			if (is_finished(game.map) && game.level < 2) {
 				game.level++;
-				engine_init(&game);
-				glcd_initialization(game.map);
+				change_level(&game);
+				glcd_init1(game.map);
+				vga_uart_render(game.map);
 			}
 		}
 	}

@@ -17,13 +17,13 @@ typedef struct refresh_area {
 } refresh_area_t;
 
 typedef enum {
-        FIELD_OUTSIDE,				// 0
-        FIELD_EMPTY,				// 1
-        FIELD_PLAYER,				// 2
-        FIELD_PLAYER_DESTINATION,	// 3
-        FIELD_BOX,					// 4
-        FIELD_BOX_DESTINATION,		// 5
-        FIELD_BOX_PLACED			// 6
+        FIELD_OUTSIDE,
+        FIELD_EMPTY,
+        FIELD_PLAYER,
+        FIELD_PLAYER_DESTINATION,
+        FIELD_BOX,
+        FIELD_BOX_DESTINATION,
+        FIELD_BOX_PLACED
 } field_t;
 
 extern map_t *map[NUMBER_OF_MAPS];
