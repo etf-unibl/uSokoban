@@ -48,7 +48,7 @@ In order to program the MCU on the EasyAVR:
 
 # Srpski/Bosanski
 
-Igra Sokoban sadrži tri nivoa, nakon završetka trenutnog nivoa automatski se pokreće sljedeći nivo.
+uSokoban sadrži tri nivoa, nakon završetka trenutnog nivoa automatski se pokreće sljedeći nivo.
 Pored kontrole karaktera koji pokreće kutije igrači su u mogućnosti i da trenutni nivo pokrenu ispočetka u bilo kom trenutku.
 Igra Sokoban je implementirana tako da se prikazuje na GLCD-u ili displeju od računara ako se koristi odgovarajući GUI.
 Mapu je moguće istovremeno vidjeti i na displeju računara kao i na GLCD-u.
