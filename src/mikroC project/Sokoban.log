@@ -1,0 +1,36 @@
+0	1	mikrocAVR.exe -MSF -DBG -pATMEGA32 -DL -SSA -O11111114 -fo8 -BOOTSZ2048 -BOOTOP0 -N"C:\Users\bnikola\Documents\Sokoban\Sokoban.mcpav" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Uses\lte64kw\" -SP"C:\Users\bnikola\Documents\Sokoban\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FAT32 Library\Uses\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FT800\Uses\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FT810\Uses\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FT812\Uses\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FAT32 Library\Uses\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FT800\Uses\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FT810\Uses\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for AVR\Packages\FT812\Uses\" "Sokoban.c" "cntrl.c" "display.c" "engine.c" "glcd.c" "map.c" "vga.c" "vga_uart.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_MemManager.mcl" "__Lib_Button.mcl" "__Lib_SoftSPI.mcl" "__Lib_UART_d01_ursel.mcl" "__Lib_GlcdFonts.mcl" "__Lib_Glcd.mcl" "__Lib_SPIGlcd.mcl" "__Lib_FAT32_Defs_lte.mcl" "__Lib_FAT32_Driver_lte.mcl" "__Lib_FAT32_lte.mcl" "__Lib_FT800_Defs_LTE.mcl" "__Lib_FT800_LTE.mcl" "__Lib_FT810_Defs_LTE.mcl" "__Lib_FT810_LTE.mcl" "__Lib_FT812_Defs_LTE.mcl" "__Lib_FT812_LTE.mcl"	 
+diagnostics: 0	122	Compilation Started	cntrl.h
+hint: 38	1354	argument may be out of range [key]	Sokoban.c
+hint: 10	1163	Variable 'i' has been declared, but not used	Sokoban.c
+hint: 10	1163	Variable 'j' has been declared, but not used	Sokoban.c
+diagnostics: 83	123	Compiled Successfully	Sokoban.c
+diagnostics: 0	122	Compilation Started	cntrl.h
+diagnostics: 41	123	Compiled Successfully	cntrl.c
+diagnostics: 0	122	Compilation Started	stdint.h
+diagnostics: 7	123	Compiled Successfully	display.c
+diagnostics: 0	122	Compilation Started	stdint.h
+hint: 73	1354	argument may be out of range [ret]	engine.c
+hint: 78	1163	Variable 'i' has been declared, but not used	engine.c
+hint: 78	1163	Variable 'j' has been declared, but not used	engine.c
+hint: 134	1354	argument may be out of range [?T619]	engine.c
+diagnostics: 135	123	Compiled Successfully	engine.c
+diagnostics: 0	122	Compilation Started	stdint.h
+hint: 58	1354	argument may be out of range [?T13]	glcd.c
+hint: 75	1354	argument may be out of range [?T97]	glcd.c
+diagnostics: 104	123	Compiled Successfully	glcd.c
+diagnostics: 0	122	Compilation Started	stdint.h
+diagnostics: 42	123	Compiled Successfully	map.c
+diagnostics: 0	122	Compilation Started	stdint.h
+hint: 0	1004	interrupt handler (timer1_ctc_ISR at 0x000E)	vga.c
+diagnostics: 52	123	Compiled Successfully	vga.c
+diagnostics: 0	122	Compilation Started	stdint.h
+warning: 19	1509	Generated baud rate is 9615 bps (error = 0.16 percent)	vga_uart.c
+diagnostics: 26	123	Compiled Successfully	vga_uart.c
+diagnostics: 0	127	All files Compiled in 218 ms	 
+hint: 0	1144	Used RX (bytes): 28 (88%)   Free RX (bytes): 4 (12%)	Used RX (bytes): 28 (88%)   Free RX (bytes): 4 (12%)
+hint: 0	1144	Static RAM (bytes): 539   Dynamic RAM (bytes): 1509	Static RAM (bytes): 539   Dynamic RAM (bytes): 1509
+hint: 0	1144	Used ROM (bytes): 6334 (22%)  Free ROM (bytes): 22338 (78%)	Used ROM (bytes): 6334 (22%)  Free ROM (bytes): 22338 (78%)
+diagnostics: 0	125	Project Linked Successfully	Sokoban.mcpav
+diagnostics: 0	128	Linked in 140 ms	 
+diagnostics: 0	129	Project 'Sokoban.mcpav' completed: 421 ms	 
+diagnostics: 0	103	Finished successfully: 06 jul 2017, 09:13:58	Sokoban.mcpav
