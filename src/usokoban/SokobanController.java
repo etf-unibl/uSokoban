@@ -7,6 +7,8 @@ package usokoban;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,10 +16,13 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -27,6 +32,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import jssc.SerialPort;
 import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
@@ -58,12 +64,20 @@ public class SokobanController implements Initializable {
     private int width = 0;
     private int height = 0;
     private GridPane root;
+    private SerialPort serialPort;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
-        if (ready)
-        {
+        if (ready){
             switchScene();
+        }
+        else{
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("");
+            alert.setHeaderText("App not synchronized with AVR board!");
+            alert.setContentText("Please wait while they are synchronizing.");
+
+            alert.showAndWait();
         }
     }
     
@@ -72,8 +86,13 @@ public class SokobanController implements Initializable {
         String serialPortName = (String)
                 comboBoxPorts.getSelectionModel().getSelectedItem();
         
-        SerialPort serialPort = new SerialPort(serialPortName);
         try {
+            if (serialPort != null){
+                serialPort.removeEventListener();
+            }
+        
+            serialPort = new SerialPort(serialPortName);
+            
             serialPort.openPort();
 
             serialPort.setParams(SerialPort.BAUDRATE_9600,
@@ -149,7 +168,22 @@ public class SokobanController implements Initializable {
     private void switchScene(){
         Scene oldScene = startBtn.getScene();
         Window window = oldScene.getWindow();
-        stage = (Stage) window;   
+        stage = (Stage) window;
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                if (serialPort != null)
+                {
+                    try{
+                        serialPort.closePort();
+                    }
+                    catch(SerialPortException ex)
+                    {
+                        
+                    }
+                }
+            }
+        });
         Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);    
         stage.setScene(scene);
         stage.show();
@@ -172,16 +206,11 @@ public class SokobanController implements Initializable {
     private void prepareResources(){
         root = new GridPane();
         
-        String resourcesPath = System.getProperty("user.dir") + 
-                File.separator + "resources" 
-                + File.separator + "grpx" + File.separator;
-        
         for (int i = 0; i < NUM_OF_IMAGES; i++){
             String filename = String.valueOf(i) + ".png";
-            images[i] = new Image("file:" + resourcesPath + filename);
+            InputStream in = getClass().getResourceAsStream("/usokoban/resources/grpx/" + filename); 
+            images[i] = new Image(in);
         }
-        
-        System.out.println(images[0].getHeight());
     }
             
     

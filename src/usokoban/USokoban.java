@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -20,8 +21,10 @@ public class USokoban extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("PortSelector.fxml"));
-        
+        stage.initStyle(StageStyle.UTILITY);
+        stage.setResizable(false);        
         Scene scene = new Scene(root);
+        
         
         stage.setTitle("uSokoban");
         stage.setScene(scene);
