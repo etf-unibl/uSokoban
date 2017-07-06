@@ -1,0 +1,70 @@
+\section{glcd.\+h File Reference}
+\label{glcd_8h}\index{glcd.\+h@{glcd.\+h}}
+
+
+File containing headers of a G\+L\+CD module.  
+
+
+{\ttfamily \#include \char`\"{}map.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf glcd\+\_\+init1} ({\bf map\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Initializes G\+L\+CD module. Should be called before using any of the functions belonging to this module. \end{DoxyCompactList}\item 
+void {\bf glcd\+\_\+render} ({\bf map\+\_\+t} $\ast$, {\bf refresh\+\_\+area\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Displays the map on the G\+L\+CD module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing headers of a G\+L\+CD module. 
+
+\begin{DoxyAuthor}{Author}
+A\+NS 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 July 2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{glcd.\+h@{glcd.\+h}!glcd\+\_\+init1@{glcd\+\_\+init1}}
+\index{glcd\+\_\+init1@{glcd\+\_\+init1}!glcd.\+h@{glcd.\+h}}
+\subsubsection[{glcd\+\_\+init1(map\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void glcd\+\_\+init1 (
+\begin{DoxyParamCaption}
+\item[{{\bf map\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{glcd_8h_a0b987e1a1bfa261780d0546739e31af7}
+
+
+Initializes G\+L\+CD module. Should be called before using any of the functions belonging to this module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{map\+\_\+t}{p.}{structmap__t}} & Pointer to map structure that should initialize G\+L\+CD. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing. 
+\end{DoxyReturn}
+\index{glcd.\+h@{glcd.\+h}!glcd\+\_\+render@{glcd\+\_\+render}}
+\index{glcd\+\_\+render@{glcd\+\_\+render}!glcd.\+h@{glcd.\+h}}
+\subsubsection[{glcd\+\_\+render(map\+\_\+t $\ast$, refresh\+\_\+area\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void glcd\+\_\+render (
+\begin{DoxyParamCaption}
+\item[{{\bf map\+\_\+t} $\ast$}]{, }
+\item[{{\bf refresh\+\_\+area\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{glcd_8h_ac9342e49100ee4d0bc95df0dfe270f1f}
+
+
+Displays the map on the G\+L\+CD module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{map\+\_\+t}{p.}{structmap__t}} & Pointer to map structure that should be replicated on G\+L\+CD. \\
+\hline
+{\em refresh\+\_\+area\+\_\+t} & Pointer to the area that needs to be refreshed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing. 
+\end{DoxyReturn}

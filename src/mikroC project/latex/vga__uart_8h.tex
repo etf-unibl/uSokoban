@@ -1,0 +1,82 @@
+\section{vga\+\_\+uart.\+h File Reference}
+\label{vga__uart_8h}\index{vga\+\_\+uart.\+h@{vga\+\_\+uart.\+h}}
+
+
+File containing headers of a V\+G\+A\+\_\+\+U\+A\+RT module.  
+
+
+{\ttfamily \#include \char`\"{}map.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries B\+A\+U\+D\+R\+A\+TE}~9600\label{vga__uart_8h_a734bbab06e1a9fd2e5522db0221ff6e3}
+
+\item 
+\#define {\bfseries T\+A\+G\+\_\+\+D\+IM}~0x\+FF\label{vga__uart_8h_a545d33d29273d1b498781f992e34d69b}
+
+\item 
+\#define {\bfseries T\+A\+G\+\_\+\+M\+AP}~0x\+FE\label{vga__uart_8h_a2cdd50cbb983a765ad973a0b0dc48846}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf vga\+\_\+uart\+\_\+init} ({\bf map\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Initializes V\+G\+A\+\_\+\+U\+A\+RT module. Should be called before using any of the functions belonging to this module. \end{DoxyCompactList}\item 
+void {\bf vga\+\_\+uart\+\_\+render} ({\bf map\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Displays the map on the V\+G\+A\+\_\+\+U\+A\+R\+T(on P\+C that runs u\+Sokoban app) module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing headers of a V\+G\+A\+\_\+\+U\+A\+RT module. 
+
+\begin{DoxyAuthor}{Author}
+A\+NS 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 July 2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{vga\+\_\+uart.\+h@{vga\+\_\+uart.\+h}!vga\+\_\+uart\+\_\+init@{vga\+\_\+uart\+\_\+init}}
+\index{vga\+\_\+uart\+\_\+init@{vga\+\_\+uart\+\_\+init}!vga\+\_\+uart.\+h@{vga\+\_\+uart.\+h}}
+\subsubsection[{vga\+\_\+uart\+\_\+init(map\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void vga\+\_\+uart\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf map\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{vga__uart_8h_a5dd6a56944fc986778a59673fbe3fe43}
+
+
+Initializes V\+G\+A\+\_\+\+U\+A\+RT module. Should be called before using any of the functions belonging to this module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{map\+\_\+t}{p.}{structmap__t}} & Pointer to map structure that should initialize G\+L\+CD. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing. 
+\end{DoxyReturn}
+\index{vga\+\_\+uart.\+h@{vga\+\_\+uart.\+h}!vga\+\_\+uart\+\_\+render@{vga\+\_\+uart\+\_\+render}}
+\index{vga\+\_\+uart\+\_\+render@{vga\+\_\+uart\+\_\+render}!vga\+\_\+uart.\+h@{vga\+\_\+uart.\+h}}
+\subsubsection[{vga\+\_\+uart\+\_\+render(map\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void vga\+\_\+uart\+\_\+render (
+\begin{DoxyParamCaption}
+\item[{{\bf map\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{vga__uart_8h_a71c884f0bc3346f2006fcbc91324f884}
+
+
+Displays the map on the V\+G\+A\+\_\+\+U\+A\+R\+T(on P\+C that runs u\+Sokoban app) module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{map\+\_\+t}{p.}{structmap__t}} & Pointer to map structure that should be replicated on G\+L\+CD. \\
+\hline
+{\em refresh\+\_\+area\+\_\+t} & Pointer to the area that needs to be refreshed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing. 
+\end{DoxyReturn}

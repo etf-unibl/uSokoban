@@ -1,0 +1,150 @@
+\section{engine.\+h File Reference}
+\label{engine_8h}\index{engine.\+h@{engine.\+h}}
+
+
+File containing headers of a E\+N\+G\+I\+NE module.  
+
+
+{\ttfamily \#include \char`\"{}display.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cntrl.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stddef.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf player}
+\begin{DoxyCompactList}\small\item\em Player abstraction with its coordinates. \end{DoxyCompactList}\item 
+struct {\bf game}
+\begin{DoxyCompactList}\small\item\em All data regarding game, including map state, player position and level being played. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf player} {\bf player\+\_\+t}\label{engine_8h_acc83da86654d65823ff6b815d2ad5bec}
+
+\begin{DoxyCompactList}\small\item\em Player abstraction with its coordinates. \end{DoxyCompactList}\item 
+typedef struct {\bf game} {\bf game\+\_\+t}\label{engine_8h_a41fc740f7617b5a808c9498d70b5f1ee}
+
+\begin{DoxyCompactList}\small\item\em All data regarding game, including map state, player position and level being played. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf engine\+\_\+err\+\_\+code\+\_\+t} \{ {\bfseries E\+N\+G\+I\+N\+E\+\_\+\+OK}, 
+{\bfseries E\+N\+G\+I\+N\+E\+\_\+\+E\+R\+R\+OR}
+ \}\label{engine_8h_a396ef2a1bc5e7ce0fdd94b417ee7839e}
+\begin{DoxyCompactList}\small\item\em Used for I\+Ding is everything OK with the E\+N\+G\+I\+NE module. \end{DoxyCompactList}
+\item 
+enum {\bf engine\+\_\+bool\+\_\+t} \{ {\bfseries E\+N\+G\+I\+N\+E\+\_\+\+F\+A\+L\+SE}, 
+{\bfseries E\+N\+G\+I\+N\+E\+\_\+\+T\+R\+UE}
+ \}\label{engine_8h_a988bfa8c302fb0ba121924a32a2a36f6}
+\begin{DoxyCompactList}\small\item\em Introducing \char`\"{}boolean\char`\"{} data. \end{DoxyCompactList}
+\item 
+enum {\bf direction\+\_\+t} \{ {\bfseries D\+I\+R\+\_\+\+L\+E\+FT}, 
+{\bfseries D\+I\+R\+\_\+\+R\+I\+G\+HT}, 
+{\bfseries D\+I\+R\+\_\+\+UP}, 
+{\bfseries D\+I\+R\+\_\+\+D\+O\+WN}
+ \}\label{engine_8h_ae9ae980041e438eed7a3af43ce4e9f6b}
+\begin{DoxyCompactList}\small\item\em Used for applying player movement. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf engine\+\_\+err\+\_\+code\+\_\+t} {\bf engine\+\_\+init} ({\bf game\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Initializes E\+N\+G\+I\+NE module. Should be called before using any of the functions belonging to this module. \end{DoxyCompactList}\item 
+void {\bf change\+\_\+level} ({\bf game\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Changes current level. Should be called before using any of the functions belonging to this module. \end{DoxyCompactList}\item 
+{\bf engine\+\_\+err\+\_\+code\+\_\+t} {\bf move} ({\bf game\+\_\+t} $\ast$, {\bf direction\+\_\+t})
+\begin{DoxyCompactList}\small\item\em Changes current level. \end{DoxyCompactList}\item 
+{\bf engine\+\_\+bool\+\_\+t} {\bf is\+\_\+finished} ({\bf map\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Changes current level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing headers of a E\+N\+G\+I\+NE module. 
+
+\begin{DoxyAuthor}{Author}
+A\+NS 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 July 2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{engine.\+h@{engine.\+h}!change\+\_\+level@{change\+\_\+level}}
+\index{change\+\_\+level@{change\+\_\+level}!engine.\+h@{engine.\+h}}
+\subsubsection[{change\+\_\+level(game\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void change\+\_\+level (
+\begin{DoxyParamCaption}
+\item[{{\bf game\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{engine_8h_ae9843ebaf5f6c6949040948e074d0363}
+
+
+Changes current level. Should be called before using any of the functions belonging to this module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+\_\+t} & Pointer to the game structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing. 
+\end{DoxyReturn}
+\index{engine.\+h@{engine.\+h}!engine\+\_\+init@{engine\+\_\+init}}
+\index{engine\+\_\+init@{engine\+\_\+init}!engine.\+h@{engine.\+h}}
+\subsubsection[{engine\+\_\+init(game\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf engine\+\_\+err\+\_\+code\+\_\+t} engine\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf game\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{engine_8h_a1261f8e20df4513f571688e35a32c203}
+
+
+Initializes E\+N\+G\+I\+NE module. Should be called before using any of the functions belonging to this module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+\_\+t} & Pointer to game structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns E\+N\+G\+I\+N\+E\+\_\+\+OK. 
+\end{DoxyReturn}
+\index{engine.\+h@{engine.\+h}!is\+\_\+finished@{is\+\_\+finished}}
+\index{is\+\_\+finished@{is\+\_\+finished}!engine.\+h@{engine.\+h}}
+\subsubsection[{is\+\_\+finished(map\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf engine\+\_\+bool\+\_\+t} is\+\_\+finished (
+\begin{DoxyParamCaption}
+\item[{{\bf map\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{engine_8h_aecb139421e3912a3e422345e75d513c2}
+
+
+Changes current level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxyref{map\+\_\+t}{p.}{structmap__t}} & Pointer to the map structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns E\+N\+G\+I\+N\+E\+\_\+\+T\+R\+UE if all boxes are at right spot, else E\+N\+G\+I\+N\+E\+\_\+\+F\+A\+L\+SE. 
+\end{DoxyReturn}
+\index{engine.\+h@{engine.\+h}!move@{move}}
+\index{move@{move}!engine.\+h@{engine.\+h}}
+\subsubsection[{move(game\+\_\+t $\ast$, direction\+\_\+t)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf engine\+\_\+err\+\_\+code\+\_\+t} move (
+\begin{DoxyParamCaption}
+\item[{{\bf game\+\_\+t} $\ast$}]{, }
+\item[{{\bf direction\+\_\+t}}]{}
+\end{DoxyParamCaption}
+)}\label{engine_8h_a2ad631bde2a30ee5889e737e2f66c760}
+
+
+Changes current level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+\_\+t} & Pointer to the game structure. \\
+\hline
+{\em direction\+\_\+t} & Direction where player wants to move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns error if player cannot go that way, else OK. 
+\end{DoxyReturn}

@@ -1,0 +1,79 @@
+\section{cntrl.\+h File Reference}
+\label{cntrl_8h}\index{cntrl.\+h@{cntrl.\+h}}
+
+
+File containing headers of a C\+N\+T\+RL module.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries H\+I\+GH}~(1)\label{cntrl_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}
+
+\item 
+\#define {\bfseries P\+IN}~P\+I\+NA\label{cntrl_8h_ae1a27401b7fb01ccb9a82dbddbb54eea}
+
+\item 
+\#define {\bfseries R\+I\+G\+HT}~P\+O\+R\+T\+A7\+\_\+bit\label{cntrl_8h_a80fb826a684cf3f0d306b22aa100ddac}
+
+\item 
+\#define {\bfseries L\+E\+FT}~P\+O\+R\+T\+A5\+\_\+bit\label{cntrl_8h_a437ef08681e7210d6678427030446a54}
+
+\item 
+\#define {\bfseries U\+P\+D\+O\+WN}~P\+O\+R\+T\+A6\+\_\+bit\label{cntrl_8h_a10698f58ad07c768bee6e2a54ae1fc1c}
+
+\item 
+\#define {\bfseries R\+ST}~P\+O\+R\+T\+A4\+\_\+bit\label{cntrl_8h_ac5d957e4fd3dc11cd97a54cf9ca057a4}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf key\+\_\+pressed\+\_\+t} \{ \\*
+{\bfseries K\+E\+Y\+\_\+\+L\+E\+FT}, 
+{\bfseries K\+E\+Y\+\_\+\+R\+I\+G\+HT}, 
+{\bfseries K\+E\+Y\+\_\+\+UP}, 
+{\bfseries K\+E\+Y\+\_\+\+D\+O\+WN}, 
+\\*
+{\bfseries K\+E\+Y\+\_\+\+R\+ST}
+ \}\label{cntrl_8h_a542ccb08c4eb7e74d19f737f9ccd6443}
+\begin{DoxyCompactList}\small\item\em Used for I\+Ding what is pressed. \end{DoxyCompactList}
+\item 
+enum {\bf key\+\_\+pressed\+\_\+code\+\_\+t} \{ {\bfseries K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED}, 
+{\bfseries K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED}
+ \}\label{cntrl_8h_a7bd80d3edc77bd302e58692f4aed1c16}
+\begin{DoxyCompactList}\small\item\em Used for detecting the event of pressed button. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf key\+\_\+pressed\+\_\+code\+\_\+t} {\bf is\+\_\+pressed} ({\bf key\+\_\+pressed\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Simple function for detecting is some key pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing headers of a C\+N\+T\+RL module. 
+
+\begin{DoxyAuthor}{Author}
+A\+NS 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 July 2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{cntrl.\+h@{cntrl.\+h}!is\+\_\+pressed@{is\+\_\+pressed}}
+\index{is\+\_\+pressed@{is\+\_\+pressed}!cntrl.\+h@{cntrl.\+h}}
+\subsubsection[{is\+\_\+pressed(key\+\_\+pressed\+\_\+t $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf key\+\_\+pressed\+\_\+code\+\_\+t} is\+\_\+pressed (
+\begin{DoxyParamCaption}
+\item[{{\bf key\+\_\+pressed\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{cntrl_8h_aa698a41326f196dbd1c1f11bf6479e2b}
+
+
+Simple function for detecting is some key pressed. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily Returns} what is pressed. 
+\end{DoxyReturn}
